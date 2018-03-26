@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-3.2.1.js" ></script>
+    <script>
+        ///reference path ="jquery-1.8.3.js">
+        
+        var $draggedItem;
+        $(document).ready(function () {
+            $('.item').on('dragstart', dragging);
+            $('.item').on('dragend', draggingEnded);
+            $('.hole').on('dragenter', preventDefault);
+            $('.hole').on('dragover', preventDefault);
+            $('.hole').on('drop', dropItem);
+
+
+        });
+        function dragging(e) {
+            $(e.target).addClass('dragging');
+            $draggedItem = $(e.target);
+        }
+        function draggingEnded(e) {
+            $(e.target).removeClass('dragging')
+        }
+        function preventDefault(e) {
+            e.preventDefault();
+
+        }
+        function dropItem(e) {
+            var hole = $(e.target);
+            if (hole.hasClass('hole') && hole.children().length == 0) {
+                $draggedItem.detach();
+                $draggedItem.appendTo($(e.target));
+            }
+
+        }
+    </script>
+<style>
+    
+     #container {
+        background-color: red;
+        border: solid;
+        width:830px;
+        height: 830px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+        .hole{
+            background-color:black;
+            border:solid;
+            width:160px;
+            height:160px;
+            float:left;
+        }
+        .item {
+            font-size: 155px;
+            color: #FFFFFF;
+            text-align: center;
+            width: 160px;
+            height: 160px;
+            background-color: #C0C0C0;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    .dragging {
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="hole1" class="hole"> <img id="item1" src="images/image_part_001.jpg"  draggable="true" class="item"></div>
+        <div id="hole2" class="hole"> <img id="item2" src="images/image_part_002.jpg" draggable="true" class="item"></div>
+        <div id="hole3" class="hole"> <img id="item3" src="images/image_part_003.jpg" draggable="true" class="item"></div>
+        <div id="hole4" class="hole"> <img id="item4" src="images/image_part_004.jpg" draggable="true" class="item"></div>
+
+        <div id="hole5" class="hole"> <img id="item5" src="images/image_part_005.jpg" draggable="true" class="item"></div>
+        <div id="hole6" class="hole"> <img id="item6" src="images/image_part_006.jpg" draggable="true" class="item"></div>
+        <div id="hole7" class="hole"> <img id="item7" src="images/image_part_007.jpg" draggable="true" class="item"></div>
+        <div id="hole8" class="hole"> <img id="item8" src="images/image_part_008.jpg" draggable="true" class="item"></div>
+
+
+        <div id="hole9" class="hole"> <img id="item9" src="images/image_part_009.jpg" draggable="true" class="item"></div>
+        <div id="hole10" class="hole"> <img id="item10" src="images/image_part_010.jpg" draggable="true" class="item"></div>
+        <div id="hole11" class="hole"> <img id="item11" src="images/image_part_011.jpg" draggable="true" class="item"></div>
+        <div id="hole12" class="hole"> <img id="item12" src="images/image_part_012.jpg" draggable="true" class="item"></div>
+
+        <div id="hole13" class="hole"> <img id="item13" src="images/image_part_013.jpg" draggable="true" class="item"></div>
+        <div id="hole14" class="hole"> <img id="item14" src="images/image_part_014.jpg" draggable="true" class="item"></div>
+        <div id="hole15" class="hole"> <img id="item15" src="images/image_part_015.jpg" draggable="true" class="item"></div>
+        <div id="hole16" class="hole"> <img id="item16" src="images/image_part_016.jpg" draggable="true" class="item"></div>
+
+        <div id="hole17" class="hole"> <img id="item17" src="images/image_part_017.jpg" draggable="true" class="item"></div>
+        <div id="hole18" class="hole"> <img id="item18" src="images/image_part_018.jpg" draggable="true" class="item"></div>
+        <div id="hole19" class="hole"> <img id="item19" src="images/image_part_019.jpg" draggable="true" class="item"></div>
+        <div id="hole20" class="hole"> <img id="item20" src="images/image_part_020.jpg" draggable="true" class="item"></div>
+
+        <div id="hole21" class="hole"> <img id="item21" src="images/image_part_021.jpg" draggable="true" class="item"></div>
+
+        <div id="hole22" class="hole"> <img id="item22" src="images/image_part_022.jpg" draggable="true" class="item"></div>
+        <div id="hole23" class="hole"> <img id="item23" src="images/image_part_023.jpg" draggable="true" class="item"></div>
+        <div id="hole24" class="hole"> <img id="item24" src="images/image_part_024.jpg" draggable="true" class="item"></div>
+        <div id="hole8" class="hole"> </div>
+        <!--<div id="hole2" class="hole"> <img id="item2" src="images/image_part_002.jpg" draggable="true" class="item"></div>-->
+        <!--<div id="hole2" class="hole"><div id="item2" draggable="true" class="item">2</div></div>
+        <div id="hole3" class="hole"><div id="item3" draggable="true" class="item">3</div></div>
+        <div id="hole4" class="hole"></div></div>-->
+    </div>
+</body>
+</html>
